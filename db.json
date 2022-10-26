@@ -153,13 +153,6 @@
       "humidity": 34,
       "date": "2022-08-05",
       "id": 26
-    },
-    {
-      "sensorId": 2,
-      "temperature": 27,
-      "humidity": 45,
-      "date": "2022-08-10",
-      "id": 27
     }
   ],
   "sensors": [

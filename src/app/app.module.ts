@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {MatButtonModule} from '@angular/material/button';
     ReactiveFormsModule,
     MatIconModule,
     MatSliderModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
