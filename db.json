@@ -142,17 +142,10 @@
     },
     {
       "sensorId": 1,
-      "temperature": 25,
-      "humidity": 45,
-      "date": "2022-08-11",
+      "temperature": 21,
+      "humidity": 60,
+      "date": "2022-10-27",
       "id": 25
-    },
-    {
-      "sensorId": 1,
-      "temperature": 26,
-      "humidity": 34,
-      "date": "2022-08-05",
-      "id": 26
     }
   ],
   "sensors": [

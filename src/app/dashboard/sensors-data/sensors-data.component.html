@@ -1,5 +1,6 @@
+
 <table>
-    <tr>
+    <tr class="row1">
         <th>Sensor</th>
         <th>Datum</th>
         <th>Temperatur</th>
@@ -14,9 +15,16 @@
         <td>{{item.humidity}}</td>
         <td>{{item.sensor.location}}</td>
         <td>{{SensorPosition[item.sensor.position]}}</td>
-        <button mat-mini-fab (click)="deleteSensordata(item.id)">X</button>
-        <!--
-        <mat-icon (click)="deleteSensordata(item.id)">delete</mat-icon>
-        -->
+        <button class="button" mat-mini-fab (click)="deleteSensordata(item.id)">x</button>
     </tr>
 </table>
+
+<!--
+
+<table mat-table [dataSource]="storeService.sensorenDaten" class="row">
+    <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef>Sensor</th>
+        <td mat-cell *matCellDef="let item"> {{item.sensor.name}} </td>
+    </ng-container>
+</table>
+-->
