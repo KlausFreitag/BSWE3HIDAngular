@@ -18,7 +18,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input'
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
-import {MatSortModule} from '@angular/material/sort'
+import {MatSortModule} from '@angular/material/sort';
+import { DataTableComponent } from './data-table/data-table.component'
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {MatSortModule} from '@angular/material/sort'
     ButtonComponent,
     HeaderComponent,
     SensorsDataComponent,
-    AboutPageComponent
+    AboutPageComponent,
+    DataTableComponent
   ],
   imports: [
     BrowserAnimationsModule,
