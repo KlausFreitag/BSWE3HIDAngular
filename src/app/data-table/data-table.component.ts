@@ -18,9 +18,7 @@ export class DataTableComponent implements AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<DataTableItem>;
 
-  listSensorendata!: Sensorendata[]
   //dataSource: DataTableDataSource;
-  //dataSource: Sensorendata;
   dataSource: any;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
@@ -31,23 +29,6 @@ export class DataTableComponent implements AfterViewInit {
     //this.dataSource = Sensorendata();
     this.dataSource = storeservice.sensorenDaten;
   }
-
-  /*
-  ngOnInit() {
-    this.fetchData();
-  }
-
-  fetchData() {
-    this.backendservice.getSensorenDaten().then(data=>{
-      this.listSensorendata = data;
-      this.
-    }
-       )
-  }
-  */
-
-
-
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;

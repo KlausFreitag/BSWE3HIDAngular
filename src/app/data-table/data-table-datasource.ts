@@ -8,11 +8,6 @@ import { StoreService } from '../shared/store.service';
 import { Sensor } from '../Sensor';
 
 // TODO: Replace this with your own data model type
-/*export interface DataTableItem {
-  name: string;
-  id: number;
-}
-*/
 export interface DataTableItem {
   id: number;
   date: Date;
@@ -86,7 +81,7 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
     return data.sort((a, b) => {
       const isAsc = this.sort?.direction === 'asc';
       switch (this.sort?.active) {
-        //case 'date': return compare(a.date, b.date, isAsc);
+        case 'date': return compare(+a.date, +b.date, isAsc);
         case 'id': return compare(+a.id, +b.id, isAsc);
         default: return 0;
       }
