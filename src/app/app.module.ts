@@ -20,6 +20,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 import {MatSortModule} from '@angular/material/sort';
 import { DataTableComponent } from './data-table/data-table.component'
+import { MatSelectModule } from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -46,8 +49,11 @@ import { DataTableComponent } from './data-table/data-table.component'
     MatInputModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
-    MatSortModule
-  ],
+    MatSortModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
