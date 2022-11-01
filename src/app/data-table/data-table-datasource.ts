@@ -13,6 +13,7 @@ export interface DataTableItem {
   date: Date;
   sensor: Sensor;
   temperature: number;
+  humidity: number;
 }
 
 // TODO: replace this with real data from your application

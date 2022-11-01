@@ -22,7 +22,7 @@ export class DataTableComponent implements AfterViewInit {
   dataSource: any;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'date', 'sensor', 'temperature'];
+  displayedColumns = ['id', 'date', 'sensor', 'temperature', 'humidity'];
 
   constructor(private storeservice: StoreService) {
     //this.dataSource = new DataTableDataSource();
