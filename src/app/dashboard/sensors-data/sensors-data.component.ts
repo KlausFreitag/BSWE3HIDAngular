@@ -15,8 +15,8 @@ export class SensorsDataComponent implements OnInit {
   constructor(private backendService: BackendService, public storeService: StoreService) { }
 
   async ngOnInit() {
-    await this.backendService.getSensoren();
-    await this.backendService.getSensorenDaten();
+   this.backendService.getSensoren();
+    this.backendService.getSensorenDaten();
   }
 
   async deleteSensordata(id: number) {
