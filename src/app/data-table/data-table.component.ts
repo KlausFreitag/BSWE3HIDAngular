@@ -21,22 +21,28 @@ export class DataTableComponent implements AfterViewInit, OnDestroy {
 
   @ViewChild(MatTable) table!: MatTable<DataTableItem>;
   @ViewChild('paginator') paginator : MatPaginator;
+  @ViewChild('paginatorPageSize') paginatorPageSize : MatPaginator;
 
   //dataSource: DataTableDataSource;
   //dataSource: any;
-  dataSource: MatTableDataSource<any>;
+  //dataSource: MatTableDataSource<any>;
+  dataSource = new MatTableDataSource(this.storeservice.sensorenDaten);
+  dataSourceWithPageSize = new MatTableDataSource(this.storeservice.sensorenDaten);
 
   private storeServiceSubscription?: Subscription;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'date', 'sensor', 'temperature', 'humidity'];
 
+  //constructor() {}
+  
   constructor(private storeservice: StoreService) {
     //this.dataSource = new DataTableDataSource();
     //this.dataSource = Sensorendata();
     //this.dataSource = storeservice.sensorenDaten;
     this.dataSource = new MatTableDataSource(this.storeservice.sensorenDaten);
   }
+  pageSizes = [5, 10, 20];
 
   ngAfterViewInit(): void {
     this.dataSource = new MatTableDataSource(this.storeservice.sensorenDaten);
