@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnDestroy, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
+import { MatSort, Sort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { SensorsDataComponent } from '../dashboard/sensors-data/sensors-data.component';
 import { Sensorendata } from '../Sensorendata';
@@ -16,7 +16,9 @@ import { Subscription } from 'rxjs';
 })
 export class DataTableComponent implements AfterViewInit, OnDestroy {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
+  //@ViewChild(MatSort) sort!: MatSort;
+  @ViewChild('empTBSort') empTBSort = new MatSort();
+
   @ViewChild(MatTable) table!: MatTable<DataTableItem>;
 
   //dataSource: DataTableDataSource;
@@ -34,7 +36,8 @@ export class DataTableComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    this.dataSource.sort = this.sort;
+    //this.dataSource.sort = this.sort;
+    this.dataSource.sort = this.empTBSort;
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.storeservice.sensorenDaten;
     this.storeServiceSubscription = this.storeservice.dataHasUpdated.subscribe(() => {

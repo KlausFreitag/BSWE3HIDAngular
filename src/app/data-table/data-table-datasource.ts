@@ -33,6 +33,7 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
     super();
   }
 
+
   /**
    * Connect this data source to the table. The table will only update when
    * the returned stream emits new items.
@@ -44,7 +45,8 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
       // stream for the data-table to consume.
       return merge(observableOf(this.data), this.paginator.page, this.sort.sortChange)
         .pipe(map(() => {
-          return this.getPagedData(this.getSortedData([...this.data ]));
+          //return this.getPagedData(this.getSortedData([...this.data ]));
+          return this.getPagedData([...this.data ]);
         }));
     } else {
       throw Error('Please set the paginator and sort on the data source before connecting.');
@@ -56,7 +58,7 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
    * any open connections or free any held resources that were set up during connect.
    */
   disconnect(): void {}
-
+  
   /**
    * Paginate the data (client-side). If you're using server-side pagination,
    * this would be replaced by requesting the appropriate data from the server.
@@ -70,10 +72,11 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
     }
   }
 
+
   /**
    * Sort the data (client-side). If you're using server-side sorting,
    * this would be replaced by requesting the appropriate data from the server.
-   */
+  */
   private getSortedData(data: DataTableItem[]): DataTableItem[] {
     if (!this.sort || !this.sort.active || this.sort.direction === '') {
       return data;
@@ -90,7 +93,9 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
   }
 }
 
-/** Simple sort comparator for example ID/Name columns (for client-side sorting). */
-function compare(a: string | number, b: string | number, isAsc: boolean): number {
+/** Simple sort comparator for example ID/Name columns (for client-side sorting). 
+*/
+function compare(a: string | number | Date, b: string | number | Date, isAsc: boolean): number {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }
+
