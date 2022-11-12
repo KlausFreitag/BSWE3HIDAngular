@@ -12,7 +12,7 @@ export class AddSensorsDataComponent implements OnInit {
 
   constructor(public storeService: StoreService, private formBuilder: UntypedFormBuilder, public backendService: BackendService) { }
   public sensorenDataForm: any;
-  public showAddTask: boolean = false;
+  //public showAddTask: boolean = false;
 
   ngOnInit(): void {
     this.sensorenDataForm = this.formBuilder.group({
@@ -30,7 +30,8 @@ export class AddSensorsDataComponent implements OnInit {
     }
   }
 
+  /**
   toggleAddTask() {
     this.showAddTask = !this.showAddTask;
-  }
+  } */
 }

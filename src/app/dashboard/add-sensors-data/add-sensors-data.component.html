@@ -1,9 +1,9 @@
-<app-button
+<!--app-button
   color="{{ showAddTask ? 'red' : 'green' }}"
   text="{{ showAddTask ? 'Close' : 'Add' }}"
   (btnClick)="toggleAddTask()"
-></app-button>
-<form [formGroup]="sensorenDataForm" (ngSubmit)="onSubmit()" *ngIf="showAddTask">
+></app-button-->
+<form [formGroup]="sensorenDataForm" (ngSubmit)="onSubmit()">
   <h2>Neuen Messwert hinzufügen</h2>
   <!-- https://www.youtube.com/watch?v=q30hfiS8GG8 -->
   
