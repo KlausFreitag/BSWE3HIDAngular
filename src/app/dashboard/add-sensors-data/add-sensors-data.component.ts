@@ -26,15 +26,21 @@ export class AddSensorsDataComponent implements OnInit {
   async onSubmit() {
     if(this.sensorenDataForm?.valid) {
       let formValue = this.sensorenDataForm.value;
-      //formValue.date = formValue.date.getFullYear()+"-"+formValue.date.getMonth()+"-"+formValue.date.getDate();
-      formValue.date = `${formValue.date.getFullYear()}-${formValue.date.getMonth()+1}-${formValue.date.getDate()}`;
+      if (formValue.date.getMonth().toString().length < 2 && formValue.date.getDate().toString().length > 1) {
+        formValue.date = `${formValue.date.getFullYear()}-0${formValue.date.getMonth()+1}-${formValue.date.getDate()}`;
+      }
+      if (formValue.date.getDate().toString().length < 2 && formValue.date.getMonth().toString().length > 1) {
+        formValue.date = `${formValue.date.getFullYear()}-${formValue.date.getMonth()+1}-0${formValue.date.getDate()}`;
+      }
+      if (formValue.date.getDate().toString().length < 2 && formValue.date.getMonth().toString().length < 2) {
+        formValue.date = `${formValue.date.getFullYear()}-0${formValue.date.getMonth()+1}-0${formValue.date.getDate()}`;
+      }
+      else {
+        formValue.date = `${formValue.date.getFullYear()}-${formValue.date.getMonth()+1}-${formValue.date.getDate()}`;
+      }
+      //formValue.date = `${formValue.date.getFullYear()}-${formValue.date.getMonth()+1}-${formValue.date.getDate()}`;
       await this.backendService.addSensorsData(this.sensorenDataForm.value);
       this.sensorenDataForm.reset();
     }
   }
-
-  /**
-  toggleAddTask() {
-    this.showAddTask = !this.showAddTask;
-  } */
 }

@@ -1,10 +1,8 @@
 import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { merge, Observable, of as observableOf } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Observable, of as observableOf, merge } from 'rxjs';
-import { BackendService } from '../shared/backend.service';
-import { StoreService } from '../shared/store.service';
 import { Sensor } from '../Sensor';
 
 // TODO: Replace this with your own data model type
@@ -87,6 +85,9 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
       switch (this.sort?.active) {
         case 'date': return compare(+a.date, +b.date, isAsc);
         case 'id': return compare(+a.id, +b.id, isAsc);
+        case 'temperature': return compare(+a.temperature, +b.temperature, isAsc);
+        case 'humidity': return compare(+a.humidity, +b.humidity, isAsc);
+        case 'sensor': return compare(+a.sensor, +b.sensor, isAsc);
         default: return 0;
       }
     });
