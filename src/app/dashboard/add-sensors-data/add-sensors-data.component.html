@@ -22,17 +22,34 @@
     <mat-form-field appearance="fill">
       <mat-label>Temperatur</mat-label>
       <input matInput placeholder="Temperatur" type="number" formControlName="temperature">
+      <mat-error *ngIf="sensorenDataForm.get('temperature').hasError('required')">
+        Temperatur wird benötigt!
+      </mat-error>
+      <mat-error *ngIf="sensorenDataForm.get('temperature').hasError('min')">
+        Temperatur zu tief!
+      </mat-error>
+      <mat-error *ngIf="sensorenDataForm.get('temperature').hasError('max')">
+        Temperatur zu hoch!
+      </mat-error>
     </mat-form-field>
 
     <!-- Select Luftfeuchtigkeit -->
     <mat-form-field appearance="fill">
       <mat-label>Luftfeuchtigkeit</mat-label>
       <input matInput placeholder="Luftfeuchtigkeit" type="number" formControlName="humidity">
+      <mat-error *ngIf="sensorenDataForm.get('humidity').hasError('required')">
+        Luftfeuchtigkeit wird benötigt!
+      </mat-error>
+      <mat-error *ngIf="sensorenDataForm.get('humidity').hasError('min')">
+        Luftfeuchtigkeit zu tief!
+      </mat-error>
+      <mat-error *ngIf="sensorenDataForm.get('humidity').hasError('max')">
+        Luftfeuchtigkeit zu hoch!
+      </mat-error>
     </mat-form-field>
 
     <button mat-raised-button type="submit" color="white">
       Erfassen
     </button>
-
   </form>
 </div>
