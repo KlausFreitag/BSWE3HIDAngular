@@ -188,6 +188,34 @@
       "humidity": 20,
       "date": "2022-11-23",
       "id": 32
+    },
+    {
+      "sensorId": 1,
+      "temperature": 20,
+      "humidity": 20,
+      "date": "2022-11-24T23:00:00.000Z",
+      "id": 33
+    },
+    {
+      "sensorId": 1,
+      "temperature": 50,
+      "humidity": 50,
+      "date": "2022-10-25",
+      "id": 34
+    },
+    {
+      "sensorId": 1,
+      "temperature": 50,
+      "humidity": 50,
+      "date": "2022-10-25",
+      "id": 35
+    },
+    {
+      "sensorId": 2,
+      "temperature": 25,
+      "humidity": 40,
+      "date": "2022-11-25",
+      "id": 36
     }
   ],
   "sensors": [

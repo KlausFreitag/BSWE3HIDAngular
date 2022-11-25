@@ -1,50 +1,38 @@
-<!--app-button
-  color="{{ showAddTask ? 'red' : 'green' }}"
-  text="{{ showAddTask ? 'Close' : 'Add' }}"
-  (btnClick)="toggleAddTask()"
-></app-button-->
-<form [formGroup]="sensorenDataForm" (ngSubmit)="onSubmit()">
-  <h2>Neuen Messwert hinzufügen</h2>
-  <!-- https://www.youtube.com/watch?v=q30hfiS8GG8 -->
-  
-    <select formControlName="sensorId">
-        <option value="" disabled>Bitte Sensor auswählen</option>
-        <option *ngFor="let item of storeService.sensoren" [ngValue]="item.id">{{item?.name}}</option>
-      </select>
+<!-- div == unser Container-->
+<div class="mat-elevation-z8 sensor-data-form">
+  <form [formGroup]="sensorenDataForm" (ngSubmit)="onSubmit()">
     <!-- Select Sensor -->
-    <!--mat-form-field appearance="fill">
+    <mat-form-field appearance="fill">
       <mat-label>Select</mat-label>
-      <mat-select formControlName="sensorID">
+      <mat-select formControlName="sensorId">
         <mat-option *ngFor="let item of storeService.sensoren" [value]="item.id">{{item?.name}}</mat-option>
       </mat-select>
-    </mat-form-field-->
+    </mat-form-field>
 
-    <!-- Select Date-->
-    <input placeholder="Datum" type="date" name="datum" formControlName="date">
-    
-    <!--mat-form-field appearance="fill">
+    <!-- Select Date -->
+    <mat-form-field appearance="fill">
       <mat-label>Choose a date</mat-label>
-      <input matInput [matDatepicker]="picker" placeholder="Datum" required formControlName="date" name="datum">
+      <input matInput [matDatepicker]="picker" placeholder="Datum" formControlName="date">
       <mat-hint>MM/DD/YYYY</mat-hint>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field-->
-
+    </mat-form-field>
+    
     <!-- Select Temperatur -->
-    <!--input placeholder="Temperatur" type="number" name="Temperatur" formControlName="temperature"-->
     <mat-form-field appearance="fill">
       <mat-label>Temperatur</mat-label>
-      <input matInput placeholder="Temperatur" type="number" name="Temperatur" formControlName="temperature">
+      <input matInput placeholder="Temperatur" type="number" formControlName="temperature">
     </mat-form-field>
 
     <!-- Select Luftfeuchtigkeit -->
-    <!-- input placeholder="Luftfeuchtigkeit" type="number" name="Luftfeuchtigkeit" formControlName="humidity"-->
     <mat-form-field appearance="fill">
       <mat-label>Luftfeuchtigkeit</mat-label>
-      <input matInput placeholder="Luftfeuchtigkeit" type="number" name="Luftfeuchtigkeit" formControlName="humidity">
+      <input matInput placeholder="Luftfeuchtigkeit" type="number" formControlName="humidity">
     </mat-form-field>
 
-    <button class="btn btn-primary" type="submit">
+    <button mat-raised-button type="submit" color="white">
       Erfassen
     </button>
-</form>
+
+  </form>
+</div>

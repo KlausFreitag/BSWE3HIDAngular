@@ -25,6 +25,9 @@ export class AddSensorsDataComponent implements OnInit {
 
   async onSubmit() {
     if(this.sensorenDataForm?.valid) {
+      let formValue = this.sensorenDataForm.value;
+      //formValue.date = formValue.date.getFullYear()+"-"+formValue.date.getMonth()+"-"+formValue.date.getDate();
+      formValue.date = `${formValue.date.getFullYear()}-${formValue.date.getMonth()+1}-${formValue.date.getDate()}`;
       await this.backendService.addSensorsData(this.sensorenDataForm.value);
       this.sensorenDataForm.reset();
     }
