@@ -12,7 +12,6 @@ export class AddSensorsDataComponent implements OnInit {
 
   constructor(public storeService: StoreService, private formBuilder: UntypedFormBuilder, public backendService: BackendService) { }
   public sensorenDataForm: any;
-  //public showAddTask: boolean = false;
 
   ngOnInit(): void {
     this.sensorenDataForm = this.formBuilder.group({
@@ -38,7 +37,6 @@ export class AddSensorsDataComponent implements OnInit {
       else {
         formValue.date = `${formValue.date.getFullYear()}-${formValue.date.getMonth()+1}-${formValue.date.getDate()}`;
       }
-      //formValue.date = `${formValue.date.getFullYear()}-${formValue.date.getMonth()+1}-${formValue.date.getDate()}`;
       await this.backendService.addSensorsData(this.sensorenDataForm.value);
       this.sensorenDataForm.reset();
     }
