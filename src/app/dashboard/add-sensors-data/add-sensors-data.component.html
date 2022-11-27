@@ -7,6 +7,9 @@
       <mat-select formControlName="sensorId">
         <mat-option *ngFor="let item of storeService.sensoren" [value]="item.id">{{item?.name}}</mat-option>
       </mat-select>
+      <mat-error *ngIf="sensorenDataForm.get('sensorId').hasError('required')">
+        SensorId wird benötigt!
+      </mat-error>
     </mat-form-field>
 
     <!-- Select Date -->
@@ -16,6 +19,9 @@
       <mat-hint>MM/DD/YYYY</mat-hint>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="sensorenDataForm.get('date').hasError('required')">
+        Datum wird benötigt!
+      </mat-error>  
     </mat-form-field>
     
     <!-- Select Temperatur -->
