@@ -12,7 +12,7 @@ describe('DataTableComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ DataTableComponent ],
+      declarations: [DataTableComponent],
       imports: [
         NoopAnimationsModule,
         MatPaginatorModule,

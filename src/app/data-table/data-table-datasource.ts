@@ -44,7 +44,7 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
       return merge(observableOf(this.data), this.paginator.page, this.sort.sortChange)
         .pipe(map(() => {
           //return this.getPagedData(this.getSortedData([...this.data ]));
-          return this.getPagedData([...this.data ]);
+          return this.getPagedData([...this.data]);
         }));
     } else {
       throw Error('Please set the paginator and sort on the data source before connecting.');
@@ -55,8 +55,8 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
    *  Called when the table is being destroyed. Use this function, to clean up
    * any open connections or free any held resources that were set up during connect.
    */
-  disconnect(): void {}
-  
+  disconnect(): void { }
+
   /**
    * Paginate the data (client-side). If you're using server-side pagination,
    * this would be replaced by requesting the appropriate data from the server.
