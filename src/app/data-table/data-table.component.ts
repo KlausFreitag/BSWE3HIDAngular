@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
 import { StoreService } from '../shared/store.service';
+import { BackendService } from '../shared/backend.service';
 import { DataTableItem } from './data-table-datasource';
 
 @Component({
@@ -20,11 +21,11 @@ export class DataTableComponent implements AfterViewInit, OnDestroy {
   private storeServiceSubscription?: Subscription;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'date', 'sensor', 'temperature', 'humidity'];
+  displayedColumns = ['id', 'date', 'sensor', 'temperature', 'humidity', 'delete'];
 
   pageSizes = [5, 10, 20];
 
-  constructor(private storeservice: StoreService) {
+  constructor(private storeservice: StoreService, private backendservice: BackendService) {
   }
 
   ngAfterViewInit(): void {
@@ -35,7 +36,14 @@ export class DataTableComponent implements AfterViewInit, OnDestroy {
     })
   }
 
+  async deleteSensordata(id: number) {
+    await this.backendservice.deleteSensorsDaten(id);
+  }
+
+
   ngOnDestroy(): void {
     this.storeServiceSubscription?.unsubscribe();
   }
+
+
 }
