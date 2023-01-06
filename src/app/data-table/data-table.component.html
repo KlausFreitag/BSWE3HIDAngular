@@ -45,5 +45,14 @@
 
   <mat-paginator #paginator #paginatorPageSize [pageSizeOptions]="pageSizes" showFirstLastButtons>
   </mat-paginator>
-  
+
+</div>
+
+<!-- https://stackoverflow.com/questions/51534832/add-a-spinner-when-mat-table-is-loading -->
+<div *ngIf="isLoading"
+     style="display: flex; justify-content: center; align-items: center; background: white;">
+  <mat-progress-spinner
+    color="primary"
+    mode="indeterminate">
+  </mat-progress-spinner>
 </div>

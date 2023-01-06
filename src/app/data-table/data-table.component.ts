@@ -24,16 +24,20 @@ export class DataTableComponent implements AfterViewInit, OnDestroy {
   displayedColumns = ['id', 'date', 'sensor', 'temperature', 'humidity', 'delete'];
 
   pageSizes = [5, 10, 20];
+  //isLoading: boolean;
+  isLoading = true;
 
   constructor(private storeservice: StoreService, private backendservice: BackendService) {
   }
 
   ngAfterViewInit(): void {
     this.storeServiceSubscription = this.storeservice.dataHasUpdated.subscribe(() => {
+      this.isLoading = false;
       this.dataSource = new MatTableDataSource(this.storeservice.sensorenDaten);
       this.dataSource.sort = this.empTBSort;
       this.dataSource.paginator = this.paginator;
-    })
+    },
+      error => this.isLoading = false);
   }
 
   async deleteSensordata(id: number) {
