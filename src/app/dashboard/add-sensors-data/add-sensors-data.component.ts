@@ -38,7 +38,8 @@ export class AddSensorsDataComponent implements OnInit {
         formValue.date = `${formValue.date.getFullYear()}-${formValue.date.getMonth()+1}-${formValue.date.getDate()}`;
       }
       await this.backendService.addSensorsData(this.sensorenDataForm.value);
-      this.sensorenDataForm.reset();
+      this.sensorenDataForm.resetForm();
+      //this.sensorenDataForm.reset();
     }
   }
 }
