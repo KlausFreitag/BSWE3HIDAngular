@@ -1,11 +1,10 @@
 import { AfterViewInit, Component, OnDestroy, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
 import { StoreService } from '../shared/store.service';
 import { BackendService } from '../shared/backend.service';
-import { DataTableItem } from './data-table-datasource';
 
 @Component({
   selector: 'app-data-table',
@@ -36,8 +35,7 @@ export class DataTableComponent implements AfterViewInit, OnDestroy {
       this.dataSource = new MatTableDataSource(this.storeservice.sensorenDaten);
       this.dataSource.sort = this.empTBSort;
       this.dataSource.paginator = this.paginator;
-    },
-      error => this.isLoading = false);
+    });
   }
 
   async deleteSensordata(id: number) {
@@ -48,6 +46,4 @@ export class DataTableComponent implements AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     this.storeServiceSubscription?.unsubscribe();
   }
-
-
 }
